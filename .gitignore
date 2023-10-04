@@ -1,0 +1,9 @@
+# For IDE
+dicoding-blog/.vscode
+dicoding-blog/.idea
+
+# For web application
+dicoding-blog/dist
+dicoding-blog/node_modules
+
+dicoding-blog/.package-lock.json
