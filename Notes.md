@@ -13,3 +13,51 @@ viewport dapat diatur dalam tag meta (`<meta>`). Dengan pengaturan viewport kita
 ```
 
 Selain itu penggunaan relative unit sangat membantu dalam penentuan ukuran elemen agar dapat menyesuaikan patokan yang digunakan seperti font, parent ataupun viewport. Contoh dari relative unit adalah %, em, ex, ch, rem, vw, vh, vmin, vmax. Tidak hanya menggunakan relative unit tetapi kita juga perlu menentukan ukuran minimal yang boleh dimiliki suatu elemen agar tetap mudah disentuh khususnya pada sebuah elemen tombol yang harus berukuran minimal 44px baik lebar maupun tingginya.
+
+### Responsive Layout
+
+Dalam menentukan layout yang responsive terdapat 2 pendekatan yaitu Desktop dan Mobile First approach. Jika 80% pengguna menggunakan desktop dan kaya akan fitur sehingga membutuhkan layar yang lebar, maka sebaiknya menggunakan pendekatan desktop first approach, meskipun nantinya harus memangkas atau mengatur ulang layout yang sudah ada. Namun jika kriteria tersebut tidak terpenuhi sebaiknya menggunakan mobile fisrt approach. Saat ini pendekatan tersebut lebih diutamakan karena telah didukung dengan berbagai teknologi serta membantu peningkatan peringkat SEO pada pencarin Google.
+
+### Media Query
+
+media query digunakan agar dapat menjalankan sekumpulan aturan styling sesuai ukuran viewport. Berikut beberapa cara penerapannya.
+
+#### tag link (`<link>`)
+
+```html
+<link href="medium.css" rel="stylesheet" media="screen and (min-width: 480px)"/>
+```
+
+#### menggunakan `@media`
+
+```css
+@media screen and (min-width: 480px) {
+  h1 {
+    color: blue;
+  }
+}
+```
+
+### Breakpoint
+
+untuk menentukan breakpoint tidak tepat jika berdasarkan ukuran tipe berbagai device, melainkan harus disesuaikan dengan web yang sedang dibuat dengan bantuan devtools.
+
+### Grid Layout
+
+Grid layout merupakan sebuah teknologi yang dapat memudahkan dalam mengelola sebuah layout dibandingkan hanya memanfaatkan flexbox.
+
+#### grid tracks
+
+grid track adalah sebuah tata letak yang diatur pada sebuah container. Berikut properti yang digunakan untuk membentuk sebuah grid-tracks.
+
+```css
+.element{
+    display:grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 100px 100px;
+}
+```
+
+#### fraction unit
+
+fraction unit (`fr`) merupakan sebuah satuan yang merepresentasikan pecahan ruang kosong yang tersisa pada grid. 
