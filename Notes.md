@@ -60,4 +60,43 @@ grid track adalah sebuah tata letak yang diatur pada sebuah container. Berikut p
 
 #### fraction unit
 
-fraction unit (`fr`) merupakan sebuah satuan yang merepresentasikan pecahan ruang kosong yang tersisa pada grid. 
+fraction unit (`fr`) merupakan sebuah satuan yang merepresentasikan pecahan ruang kosong yang tersisa pada grid. Dengan satuan ini maka ukuran kolom yang ditentukan sesuai dengan rasio yang diberikan dan untuk memudahan dalam penulisan ukuran yang berulang dapat dibantu dengan fungsi `repeat()`. Berikut contoh penggungannnya.
+
+```css
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+```
+
+#### grid line
+
+grid line yang menyusun kolom diurutkan sesuai arah penulisan bahasa yang digunakan. grid line dapat menjadi panduan dalam menentukan lebar dari masing-masing elemen yang terdapat pada sebuah container dengan display grid. Nilai yang ditetapkan pada sebuah elemen pun disesuaikan kembali dengan ukuran yang telah diatur menggunakan fraction unit pada kolom. Berikut contoh penggunaan grid line.
+
+```css
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.item2 {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.item3 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+```
+
+#### gutter
+
+Kita dapat menentukan gap antar elemennya baik antar baris dan kolom. Berikut merupakan contoh penggunaannya.
+
+```css
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.625em 0.75em; /* baris kolom */
+}
+```
