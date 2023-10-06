@@ -6,4 +6,8 @@ dicoding-blog/.idea
 dicoding-blog/dist
 dicoding-blog/node_modules
 
+# For web application
+restaurant-apps-starter-project/dist
+restaurant-apps-starter-project/node_modules
+
 dicoding-blog/.package-lock.json
