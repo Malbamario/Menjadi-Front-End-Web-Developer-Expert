@@ -308,7 +308,50 @@ footer a {
     color: #fff;
 }
 
+@media screen and (max-width: 375px) {
+    #drawer{
+      display: flex;
+    }
+
+    #hamburger {
+        font-size: 2em;
+        text-decoration: none;
+        color: black;
+        margin: 0.25em auto;
+    }
+
+    .nav__list {
+      display: block;
+      position: absolute;
+      width: 100%;
+      padding: 0;
+      transform: translate(-375px, 44px);
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 10px 0px 10px 0px rgba(0,0,0,0.4);
+      background-color:#fff;
+    }
+    .nav__list.open {
+      transform: translate(0, 44px);
+    }
+    .nav__list .nav__item {
+      display: block;
+      color: #000000;
+      padding: 5px;
+      text-decoration: none;
+    }
+    .nav__list .nav__item:hover {
+      background-color: #616161;
+    }
+
+    .nav__list .nav__item:hover a {
+      color: #FFFFFF;
+    }
+}
+
 @media screen and (min-width: 375px) {
+    #hamburger {
+        display: none;
+    }
     .nav__list {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

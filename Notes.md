@@ -100,3 +100,7 @@ Kita dapat menentukan gap antar elemennya baik antar baris dan kolom. Berikut me
   gap: 0.625em 0.75em; /* baris kolom */
 }
 ```
+
+### Optimasi Lainnya
+
+optimalisasi dapat dilakukan pada teks yang terdapat pada halaman tersebut. Secara umum jumlah ideal karakter pada satu baris di antara 45 sampai 75, dan untuk website di sekitar 66 karakter. Kemudian kita dapat menerapkan teknik off canvas yang sering digunakan untuk membuat sebuah drop-down.
