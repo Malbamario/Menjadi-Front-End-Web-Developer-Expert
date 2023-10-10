@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap');
+
+*{
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+img {
+  display: block;
+}
+
+.container {
+  max-width: 1440px;
+}
+
+body{
+  margin: 0;
+  background-color: #222831;
+  width: 100%;
+}
+
+h1{
+  margin: 0;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  padding: 0.5em 2em;
+  background-color: #FFD369;
+}
+
+nav .title{
+  display: flex;
+  align-items: center;
+  gap:1em;
+  color:#222831;
+}
+
+nav ul{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  padding: 0;
+  max-width: 400px;
+  list-style-type: none;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a{
+  text-decoration-line: none;
+  text-transform: uppercase;
+  color:#222831;
+}
+
+body>a{
+    position: absolute;
+    top:-5em;
+    padding: 1em;
+    margin: 1em;;
+    border-radius: 0.75em;
+    color: #222831;
+    text-decoration: none;
+    background-color: #EEEEEE;
+}
+
+body>a:focus{
+    top:0;
+}
+
+.hero {
+    display: flex;
+    align-items: stretch;
+    min-height: 380px;
+    width: 100%;
+    background-image: url("hero-image_4.jpg");
+    background-position: center;
+    background-color: green;
+}
+
+.overlay{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    text-align: center;
+    color: #EEEEEE;
+    background-image: linear-gradient(to right, #393E46, rgba(255,0,0,0), #393E46);
+}
+
+.overlay p{
+    margin: 0;
+}
+
+.restaurants{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 3em 0 1em 0;
+}
+
+.restaurants h1{
+    color: #EEEEEE;
+    text-shadow: #222831;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 0 2em;
+    background-color: #FFD369;
+}
+
+.restaurants ul{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    list-style-type: none;
+    padding: 0 1em;
+}
+
+.restaurants ul li{
+    border-radius: 0.75em;
+    background-color: #393E46;
+}
+
+.restaurants ul li .kota{
+    position: relative;
+    top: 0.5em;
+    margin: 0;
+}
