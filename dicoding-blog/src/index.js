@@ -5,6 +5,7 @@ const list = document.querySelector('.nav__list');
 const mainElement = document.querySelector('main');
  
 hamburgerButtonElement.addEventListener('click', event => {
+    console.log("test");
   list.classList.toggle('open');
   event.stopPropagation();
 });
