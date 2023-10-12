@@ -49,8 +49,9 @@ nav
             text-decoration-line: none
             text-transform: uppercase
             color: $darkColor
-            padding: 11px 0
+            display: inline-block
             line-height: 44px
+            min-width: 44px
             min-height: 44px
 
 body > a 
@@ -176,13 +177,16 @@ footer
     padding: 0 2em
     background-color: $lightColor
     color:$darkColor
-    line-height: 44px
 
     a
         color:$darkColor
-        padding: 11px 0
+        display: inline-block
+        min-width: 44px
+        min-height: 44px
     p
         color:$darkColor
+        margin: 0.5em 0
+        line-height: 44px
 
 @media screen and (max-width: 450px) 
     #hamburger 
