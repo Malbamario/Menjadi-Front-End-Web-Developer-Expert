@@ -138,3 +138,116 @@ Penggunaan heading dan landmark sangat membantu dalam penggunaan screen reader d
 ### Label & Alt Text
 
 Pemberian label pada sebuah elemen dapat membantu screen reader membaca accessibility name dari elemen tersebut. Terdapat beberapa cara untuk memberikan nilai accessibility name pada sebuah elemen, seperti memberi elemen label yang mengarah pada sebuah input, konten diisi dengan teks, atau jika tidak bisa dapat memberikan atribut `aria-label` pada elemen tersebut. Selain itu terdapat Alt text yang biasanya digunakan pada elemen gambar yang penting atau perlu dideskripsikan, bukan untuk gambar yang digunakan sekedar dekorasi. Selain itu Alt Text juga berguna untuk memberikan deskripsi pada suatu gambar yang tak sempat termuat pada halaman tersebut.
+
+## JavaScript Clean Code
+
+### Style Guide
+
+Alasan style guide penting: konsistensi, membantu dalam proses onboarding pada tim baru, menambah wawasan, dan membantu proses code review.
+
+### Code Conventions
+
+merupakan style guide yang telash disepakati dan direkomendasi oleh banyak developer. Misalnya AirBnB, Google, dan Standard.
+
+### ESLint
+
+sebuah package yang dapat membantu dalam menentukan sebuah style guide yang akan digunakan. ESLint juga dapat diintegrasikan dengan text editor yang sedang digunakan. Pastikan versi nodejs yang digunakan 12.0.0 ke atas. Berikut beberapa perintah yang dapat dijalankan untuk menggunakan ESLint.
+
+```shell
+npm install eslint --save-dev
+npx eslint --init
+npm run lint
+```
+
+Perintah ketiaga tersebut dilakukan setelah memuat sebuah perintah `"lint": "eslint ./src"` pada script di file package.json. Namun hal tersebut cukup merepotkan maka dengan integrasi dengan text editor kita tidak perlu menjalankan perintah tersebut.
+
+### Clean Code
+
+#### Prinsip Membuat Variables
+
+terdapat beberapa prinsip yang digunakan saat mebuat sebuah variabel, seperti:
+
+- Bersungguh-sungguh (niat)
+- Memiliki arti
+- mudah diucap
+- mudah dicari
+- Ekplisit (Avoid Mental Mapping)
+- Hindari penambahan kata yang tidak perlu
+- Gunakan default argument
+
+#### Membuat function dengan baik
+
+terdapat beberapa hal yang perlu diperhatikan dalam membuat sebuah fungsi yaitu:
+
+- kurangi jumlah parameter yang banyak setidaknya menjadi 2 atau 3 parameter saja. Hal tersebut dapat diatasi dengan destructuring object
+- usahakan setiap fungsi menjalankan satu hal saja
+- nama yang digunakan merepresentasikan tujuannya
+- memiliki satu tingkatan abstraksi karena jika tidak maka akan melakukan lebih dari satu hal
+- Usahakan functional programming daripada imperative programming
+- Enkapsulasikan Kondisional
+- Hindari Negasi Kondisional
+- Minimalisir Kondisional
+- Hindari Duplikasi Kode
+
+### Objek dan Struktur Data
+
+Dalam membuat struktur data pada js maka kita perlu menerapkan setter getter, pastikan menggunakan ES6 class daripada ES5 function, method chaining (memberikan return this pada setiap method). Selain itu terdapat sebuah prinsip yaitu SOLID yang dapat memudahkan pengembang untuk mengembangkan aplikasi yang dibangun kedepannya.
+
+#### SOLID
+
+- Single Responsibility Principle (SRP)
+  Pada dasarnya prinsip ini menentukan setiap class menangani satu tanggung jawab.
+- Open/Closed Principle (OCP)
+  Menentukan bagian mana yang dapat diubah maupun tidak supaya tidak ada kebergantungan misalnya terdapat salah satu diubah maka bagian lainnya harus diubah juga.
+- Liskov Substitution Principle (LSP)
+  intinya adalah prinsip yang digunakan untuk memastikan setiap abstraksi yang dibentuk dapat disubstitusikan ke dalam kelas turunannya sepenuhnya, tidak hanya sebagian.
+- Interface Segregation Principle (ISP)
+  Prinsipnya kita perlu meminimalisir interface atau class yang tidak selalu diperlukan sehingga kita perlu menyusun sebuah metode agar tidak selalu dipanggil atau dikirimkan oleh pengguna.
+- Dependencies Inversion Principle (DIP)
+  terdapat 2 hal penting yang perlu diperhatikan dalam prinsip ini yaitu
+  - Modul high-level tidak boleh memiliki ketergantungan terhadap modul low-level. Keduanya harus bergantung pada abstractions.
+  - Abstractions tidak boleh bergantung terhadap detail. Detail harus bergantung pada abstractions.
+  intinya jangan menerapkan ketergantungan terhadap low class pada high class.
+
+### Concurrency
+
+Program tidak selalu bekerja secara sinkronus sehingga perlu pemahaman yang baik agar dapat menangani proses yang memerlukan penyelesaian secara asinkronus. Pada Js terdapat beberapa hal yang dapat dilakukan untuk memaksimalkan proses asinkronus tersebut yaitu dengan mengutamakan penggunaan async/await dibandingkan dengan promise atau bahkan dibandingkan dengan callback.
+
+### Error Handling
+
+penanganan error tidak hanya sekedar menampilkannya pada console, namun juga dapat menyediakan ruang bagi pengguna untuk menyampaikan detail dari error yang teleah terjadi, termasuk ketika terjadi penolakan promise.
+
+### Comments
+
+Pengoptimalisasi komen dilakukan agar dapat membantu proses pemahaman sebuah kode pemrograman yang sifatnya kompleks, bukan untuk menjelaskan sesuatu yang sudah pasti maknanya dan "menghapus" sebuah kode.
+
+## Progresive Web Apps
+
+PWAs merupakan sebuah konsep dari sebuah web yang dapat bekerja seolah seperti sebuah native app, seperti penempatan pada home screen, berjalan di kala offline, hingga fitur notifikasi. Terdapat beberapa karakteristik dari PWAs seperti:
+
+- Progresif - Dapat berjalan untuk setiap pengguna.
+- Responsif - Menyesuaikan di berbagai perangkat.
+- Konektivitas Independen - kualitas load time yang baik meski internet dengan kualitas yang rendah, bahkan offline dengan service worker.
+- Menyerupai aplikasi native - website terasa seperti native app dengan bantuan application shell.
+- Aman - wajib dengan ssl alias https
+- dapat ditemukan - rate SEO yang tinggi dan terdefinisi sebagai "aplikasi" dengan app manifest dan service worker.
+- re-engageable - dapat menarik kembali perhatian pengguna melalui notifikasi.
+- dapat dipasang - terpasang di homescreen tanpa melalui aplication store.
+- bisa ditautkan - mudah dibagikan melalui URL.
+
+Dari beberapa karakteristik tersebut terdapat beberapa kelebihan serta kekurangan yang dimiliki dalam konsep ini seperti:
+
+- tidak perlu menggunakan toko aplikasi.
+- pengguna tidak perlu melakukan update.
+- mudah untuk disebarkan.
+- mengurangi penggunaan data.
+- tidak semua fitur native dapat digunakan.
+- tidak dapat didukung browser versi lama.
+
+contoh web dengan konsep WPAs yaitu twitter, tokopedia, bookmyshow, google developer, dan YT. Terdapat beberapa komponen yang diperlukan dalam membangun seubah web secara PWAs, yaitu Application Shell, Web App Manifest, Service Worker, Cache API, Fetch API, IndexedDB, Web Socket, Notification.
+
+### Web Architecture
+
+terdapat 2 jenis arsitektur berdasarkan bagaimana server mengembalikan konten halaman yaitu SSR (Server Side Rendering) dan CSR (Client Side Rendering). dan juga terdapat pola yang terbagi menjadi 2 yaitu MPA (Multi-Page App) dan SPA (Single-Page App). Pada penggunaan PWAs sangat disarankan menggunakan kombinasi CSR + SPA untuk mengurangi beban server dalam menangani request dan mengurangi jumlah file statis yang perlu disimpan pada cache API.
+
+### Application Shell
