@@ -11,3 +11,8 @@ dicoding-blog/package-lock.json
 restaurant-apps-starter-project/dist
 restaurant-apps-starter-project/node_modules
 restaurant-apps-starter-project/package-lock.json
+
+# For web application
+movie-catalogue/dist
+movie-catalogue/node_modules
+movie-catalogue/package-lock.json

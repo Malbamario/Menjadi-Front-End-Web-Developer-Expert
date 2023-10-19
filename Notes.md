@@ -251,3 +251,9 @@ contoh web dengan konsep WPAs yaitu twitter, tokopedia, bookmyshow, google devel
 terdapat 2 jenis arsitektur berdasarkan bagaimana server mengembalikan konten halaman yaitu SSR (Server Side Rendering) dan CSR (Client Side Rendering). dan juga terdapat pola yang terbagi menjadi 2 yaitu MPA (Multi-Page App) dan SPA (Single-Page App). Pada penggunaan PWAs sangat disarankan menggunakan kombinasi CSR + SPA untuk mengurangi beban server dalam menangani request dan mengurangi jumlah file statis yang perlu disimpan pada cache API.
 
 ### Application Shell
+
+App Shell hanya berupa sebuah UI yang tersimpan di dalam cache, pada request pertama agar tidak perlu lagi diambil pada request selanjutnya. Sebagai sebuah teknik, SPA merupakan bentuk yang dapat menjadi contoh metode yang menerapkan app shell.
+
+### Web Manifest
+
+Web manifest merupakan sebuah berkas yang digunakan agar aplikasi tersebut dapat ditempatkan pada home screen. Selain itu terdapat beberapa tools untuk membuat sebuah web manifest seperti [Web App Manifest generator](https://app-manifest.firebaseapp.com/) atau [webpack-pwa-manifest (Webpackplugin)](https://github.com/arthurbergmz/webpack-pwa-manifest)
