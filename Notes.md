@@ -257,3 +257,17 @@ App Shell hanya berupa sebuah UI yang tersimpan di dalam cache, pada request per
 ### Web Manifest
 
 Web manifest merupakan sebuah berkas yang digunakan agar aplikasi tersebut dapat ditempatkan pada home screen. Selain itu terdapat beberapa tools untuk membuat sebuah web manifest seperti [Web App Manifest generator](https://app-manifest.firebaseapp.com/) atau [webpack-pwa-manifest (Webpackplugin)](https://github.com/arthurbergmz/webpack-pwa-manifest)
+
+### Service Worker
+
+Teknologi ini memungkinkan sebuah website bekerja ketika sedang offline yang dibantu dengan cache API dan beberapa fitur lainnya. Service worker berupa sebuah berkas js yang diproses di background oleh browser. Selain itu dengan service worker mengambil alih semua urusan request pada browser. Sebuah service worker tidak boleh melakukan modifikasi pada DOM, namun dengan method postMessage() untuk mengirimkan pesan ke event listener pada berkas Js oleh halaman web. Terdapat 2 API yang perlu digunakan oleh service worker yaitu Fetch API dan Cache API. Pada sebuah service worker terdapat sebuah siklus hidup yaitu: installation, activated, error, idle, terminated dan fetch/message. Pada siklus Instalation biasanya melakukan proses penyimpanan app shell pada cache API. Jika gagal maka siklus error terjadi. Pada siklus Activate dapat dimanfaatkan untuk menghapus cache lama jika terdapat update pada app shell atau perubahan pada versi aplikasi. Terdapat method skipWaiting() yang dapat dituliskan secara eksplisit ataupun cukup menjalankan Update on Reload pada DevTools -> Application -> Service Worker di Google Chrome saat pada tahap development. Pada siklus idle service worker siap mengerjakan fungsi utamanya untuk mengontrol event fetch, message, atau push. Selain itu terdapat beberpa event fungsional seperti fetch, message, sync dan push. Fetch dijalankan ketika client melakukan request. Message dijalankan ketika client memanggil fungsi postMessage(). Pada event sync terdapat background sync yang telah didaftarkan pada proses registrasi service worker.
+
+#### Cache API
+
+Cache API dapat diakses melalui window, iframe, worker, ataupun service worker. Untuk memastikan bahwa browser mendukung adanya cache API dapat dibuktikan dengan script berikut
+
+```js
+const cacheAvailable = 'caches' in self; // true or false
+```
+
+Untuk membuka cache dapat menggunakan method `caches.open(name)` yang mengembalikan sebuah promise berisi objek cache
