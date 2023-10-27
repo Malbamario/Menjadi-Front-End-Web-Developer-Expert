@@ -270,4 +270,12 @@ Cache API dapat diakses melalui window, iframe, worker, ataupun service worker. 
 const cacheAvailable = 'caches' in self; // true or false
 ```
 
-Untuk membuka cache dapat menggunakan method `caches.open(name)` yang mengembalikan sebuah promise berisi objek cache
+Untuk membuka cache dapat menggunakan method `caches.open(name)` yang mengembalikan sebuah promise berisi objek cache. Untuk menambahkan resource ke dalam cache terdapat beberapa cara seperti add, addAll, dan put. Pada method add cukup membutuhkan 1 parameter yaitu sebuah request atau url kemudian mengembalikan sebuah promise beserta statusnya, sedangkan addAll dapat menerima sebuah array yang berisi request atau url. Untuk mengambil resource dari cache dapat menggunakan method match. Pada method tersebut terdapat beberapa parapmeter seperti request dan option untuk mmengbaikan beberapa hal seperti query, parmeter dan atribution pada request. Method match mengembalikan promise resolved atau undefined jika tidak ditemukan. Untuk mencari nama dari cache yang telah dibuat dapat menggunakan method keys. Untuk menghapus cache dapat menggunakan method delete yang biasanya dikombinasikan dengan method keys untuk mencari cache tersebut terlebih dahulu.
+
+Terdapat beberapa polau untuk melakukan cache di Caches API dan service worker, yaitu:
+
+- cache only: terdapat beberapa tahap seperti precaching untuk menyimpan resource dan untuk mengubahnya dengan cara menghapus dan melakukan precaching kembali.
+- network only: hanya melakukan permintaan ke internet tanpa menggunakan cache sama sekali.
+- cache first: terlebih dahulu mengakses cache, namun jika tidak ditemukan maka akan melakukan request ke internet, cocok untuk mengambil aset yang digunakan pada PWA.
+- network first: terlebih dahulu mengakses internet,, namun jika gagal karena koneksi lambat atau tidak ada jaringan, cocok untuk data yang selalu diperbarui secara berkala namun bukan data yang krusial
+- state revalidate: terlebih dahulu mengambil data pada cache sambil melakukan request ke internet sehingga pada request selanjutnya data pada cache adalah data yang terbaru.
