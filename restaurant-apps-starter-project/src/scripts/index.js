@@ -1,4 +1,4 @@
-import 'regenerator-runtime'; /* for async await transpile */
+import 'regenerator-runtime';
 import '../styles/main.sass';
 import './components/app-bar.js';
 import './components/hero.js';

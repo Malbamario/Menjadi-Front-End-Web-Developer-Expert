@@ -16,3 +16,13 @@ restaurant-apps-starter-project/package-lock.json
 movie-catalogue/dist
 movie-catalogue/node_modules
 movie-catalogue/package-lock.json
+
+# For web application
+Submission 2_restaurant-pwa/dist
+Submission 2_restaurant-pwa/node_modules
+Submission 2_restaurant-pwa/package-lock.json
+
+# For web application
+segitiga-apa-aku-starter-project/dist
+segitiga-apa-aku-starter-project/node_modules
+segitiga-apa-aku-starter-project/package-lock.json
