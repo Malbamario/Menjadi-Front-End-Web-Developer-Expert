@@ -7,12 +7,11 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
   devServer: {
     static: path.resolve(__dirname, 'dist'),
-    open: true,
     port: 9000,
     client: {
       overlay: {
         errors: true,
-        warnings: true,
+        warnings: false,
       },
     },
     compress: true,

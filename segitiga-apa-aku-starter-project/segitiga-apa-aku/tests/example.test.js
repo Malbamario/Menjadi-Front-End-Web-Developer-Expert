@@ -1,4 +1,4 @@
-const yourName = 'Judy Doe';
+const yourName = 'John Doe';
 
 describe('Scenario Test Example', () => {
   it('test case example', () => {
