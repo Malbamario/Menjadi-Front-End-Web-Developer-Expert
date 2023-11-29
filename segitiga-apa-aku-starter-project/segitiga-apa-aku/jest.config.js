@@ -7,7 +7,7 @@
 const config = {
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    "**/tests/**/*.test.[jt]s"
+    '**/tests/**/*.test.[jt]s',
   ],
 
   // A map from regular expressions to paths to transformers
