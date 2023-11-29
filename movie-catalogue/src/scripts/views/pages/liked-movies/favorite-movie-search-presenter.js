@@ -1,7 +1,3 @@
-const _showFoundMovies = (movies) => {
-  this._view.showMovies(movies);
-};
-
 class FavoriteMovieSearchPresenter {
   constructor({ favoriteMovies, view }) {
     this._favoriteMovies = favoriteMovies;
@@ -26,7 +22,11 @@ class FavoriteMovieSearchPresenter {
       foundMovies = await this._favoriteMovies.getAllMovies();
     }
 
-    _showFoundMovies(foundMovies);
+    this._showFoundMovies(foundMovies);
+  }
+
+  _showFoundMovies(movies) {
+    this._view.showFavoriteMovies(movies);
   }
 
   get latestQuery() {

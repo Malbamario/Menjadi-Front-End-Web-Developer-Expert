@@ -12,14 +12,21 @@ exports.config = {
   output: 'e2e/output',
   helpers: {
     Playwright: {
+      browser: 'chromium',
       url: 'http://localhost:9000',
       show: true,
-      browser: 'chromium',
-      channel: 'msedge',
     },
   },
   include: {
     I: './steps_file.js',
   },
-  name: 'movie-catalogue',
+  name: 'movie-catalogue-pushnotif-for-e2e-demo',
+  plugins: {
+    retryFailedStep: {
+      enabled: true,
+    },
+    screenshotOnFail: {
+      enabled: true,
+    },
+  },
 };

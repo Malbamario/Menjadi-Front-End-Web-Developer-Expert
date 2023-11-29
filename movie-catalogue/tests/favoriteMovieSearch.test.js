@@ -23,14 +23,7 @@ describe('Searching movies', () => {
       getAllMovies: jest.fn(),
       searchMovies: jest.fn(),
     };
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> 15b61a4dd9e3b8177c99f0afcd1f53619a393d9f
-=======
-
->>>>>>> 15b61a4dd9e3b8177c99f0afcd1f53619a393d9f
     presenter = new FavoriteMovieSearchPresenter({
       favoriteMovies,
       view,
