@@ -15,5 +15,6 @@ module.exports = merge(common, {
       },
     },
     compress: true,
+    hot: false,
   },
 });

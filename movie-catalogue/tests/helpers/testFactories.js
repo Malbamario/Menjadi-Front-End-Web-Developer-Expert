@@ -6,4 +6,4 @@ const createLikeButtonPresenterWithMovie = async (movie) => {
     movie,
   });
 };
-export default createLikeButtonPresenterWithMovie;
+export { createLikeButtonPresenterWithMovie };

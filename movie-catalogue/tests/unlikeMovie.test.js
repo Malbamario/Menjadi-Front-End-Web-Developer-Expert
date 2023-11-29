@@ -17,11 +17,13 @@ describe('Unliking A Movie', () => {
 
   it('should display unlike widget when the movie has been liked', async () => {
     await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
+
     expect(document.querySelector('[aria-label="unlike this movie"]')).toBeTruthy();
   });
 
   it('should not display like widget when the movie has been liked', async () => {
     await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
+
     expect(document.querySelector('[aria-label="like this movie"]')).toBeFalsy();
   });
 

@@ -20,7 +20,7 @@ const LikeButtonPresenter = {
 
   async _isMovieExist(id) {
     const movie = await this._favoriteMovies.getMovie(id);
-    return !!movie;
+    return movie;
   },
 
   _renderLike() {

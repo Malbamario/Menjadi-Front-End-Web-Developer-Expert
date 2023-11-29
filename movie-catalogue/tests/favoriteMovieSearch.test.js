@@ -1,7 +1,3 @@
-import {
-  beforeEach, describe, expect, it,
-} from '@jest/globals';
-import { spyOn } from 'jest-mock';
 import FavoriteMovieSearchPresenter from '../src/scripts/views/pages/liked-movies/favorite-movie-search-presenter';
 import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb';
 import FavoriteMovieSearchView
@@ -22,8 +18,12 @@ describe('Searching movies', () => {
     view = new FavoriteMovieSearchView();
     document.body.innerHTML = view.getTemplate();
   };
+
   const constructPresenter = () => {
-    spyOn(FavoriteMovieIdb, 'favoriteMovies');
+    favoriteMovies = {
+      getAllMovies: jest.fn(),
+      searchMovies: jest.fn(),
+    };
     presenter = new FavoriteMovieSearchPresenter({
       favoriteMovies,
       view,
