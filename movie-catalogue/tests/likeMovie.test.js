@@ -1,3 +1,4 @@
+import { spyOn } from 'jest-mock';
 import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb';
 import * as TestFactories from './helpers/testFactories';
 
@@ -6,8 +7,9 @@ describe('Liking A Movie', () => {
     document.body.innerHTML = '<div id="likeButtonContainer"></div>';
   };
 
-  beforeEach(async () => {
+  beforeEach(() => {
     addLikeButtonContainer();
+    spyOn(FavoriteMovieIdb, 'searchMovies');
   });
 
   it('should show the like button when the movie has not been liked before', async () => {
