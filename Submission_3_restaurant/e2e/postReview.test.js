@@ -1,56 +1,55 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-undef */
 const assert = require('assert');
 
 Feature('Post a Review');
 
+Before(({ I }) => {
+  I.amOnPage('/');
+});
+
 Scenario('Post Review', async ({ I }) => {
+  I.waitForElement(locate('restaurant-list').find('li a restaurant-item'));
+  I.seeElement(locate('restaurant-list').find('li a restaurant-item'));
 
-    I.amOnPage('/');
-    I.seeElement('list-restaurant');
-    I.seeElement('restaurant-item');
+  const firstRestaurant = locate('restaurant-list li').first();
+  I.click(locate(firstRestaurant).find('a'));
+  I.seeElement(locate('#customerReview-box').find('form'));
 
-    const firstRestaurant = locate('restaurant-item').first();
-    I.waitForElement = (locate(firstRestaurant).find('h2.restoran-title a'));
-    const firstRestaurantDetail = await I.grabTextFrom(locate(firstRestaurant).find('h2.restoran-title a'));
+  const testName = `I am malba ${new Date().toLocaleTimeString()}`;
+  const testMessage = `This is my message '${new Date().toLocaleTimeString()}'`;
+  const sumReviewerBefore = await I.grabNumberOfVisibleElements('.item-list-review');
 
-    I.click(firstRestaurantDetail);
-    I.seeElement(locate('form-review').find('form'));
+  I.fillField('reviewer', testName);
+  I.fillField('reviewIn', testMessage);
+  I.click('Submit');
+  I.wait(1);
 
-    const testName = `I am ${new Date().toLocaleTimeString()}`;
-    const testMessage = `This is my message '${new Date().toLocaleTimeString()}'`;
-    const sumReviewerBefore = await I.grabNumberOfVisibleElements('comment-reviewer');
+  I.see(testName);
+  I.see(testMessage);
 
-    I.fillField('Your name', testName);
-    I.fillField('Comment about the restaurant', testMessage);
-    I.click('Send');
-    I.wait(1);
+  const currentSumReviewer = await I.grabNumberOfVisibleElements('.item-list-review');
 
-    I.see(testName)
-    I.see(testMessage)
-
-    const currentSumReviewer = await I.grabNumberOfVisibleElements('comment-reviewer');
-
-    // Make sure, the new review is posted
-    assert(currentSumReviewer === sumReviewerBefore + 1);
+  // Make sure, the new review is posted
+  assert(currentSumReviewer === sumReviewerBefore + 1);
 });
 
 Scenario('Post Review Without Fill the Form', async ({ I }) => {
-    I.amOnPage('/');
-    I.wait(0.5);
-    I.seeElement('list-restaurant');
-    I.seeElement('restaurant-item');
+  I.wait(0.5);
+  I.seeElement('restaurant-item');
 
-    const firstRestaurant = locate('restaurant-item').first();
-    I.waitForElement = (locate(firstRestaurant).find('h2.restoran-title a'));
-    const firstRestaurantDetail = await I.grabTextFrom(locate(firstRestaurant).find('h2.restoran-title a'));
+  I.waitForElement(locate('restaurant-list').find('li a restaurant-item'));
+  I.seeElement(locate('restaurant-list').find('li a restaurant-item'));
 
-    I.click(firstRestaurantDetail);
-    I.seeElement(locate('form-review').find('form'));
-    
-    const sumReviewerBefore = await I.grabNumberOfVisibleElements('comment-reviewer');
+  const firstRestaurant = locate('restaurant-list li').first();
+  I.click(locate(firstRestaurant).find('a'));
 
-    I.click('Send');
+  I.seeElement(locate('#customerReview-box').find('form'));
+  const sumReviewerBefore = await I.grabNumberOfVisibleElements('.item-list-review');
 
-    const currentSumReviewer = await I.grabNumberOfVisibleElements('comment-reviewer');
-    // Make sure, the post without fill the form is not posted
-    assert(currentSumReviewer === sumReviewerBefore);
-})
+  I.click('Submit');
+
+  const currentSumReviewer = await I.grabNumberOfVisibleElements('.item-list-review');
+  // Make sure, the post without fill the form is not posted
+  assert(currentSumReviewer === sumReviewerBefore);
+});

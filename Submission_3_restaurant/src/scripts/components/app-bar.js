@@ -5,6 +5,7 @@ class AppBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
+        <a href="#" id="skip-to-content" tabindex="1">Skip To Content</a>
         <nav>
             <div class="title">
                 <img src="./app-icon.png" alt="Malba Culinary Icon">
@@ -17,6 +18,15 @@ class AppBar extends HTMLElement {
                 <li><a href="https://www.linkedin.com/in/malba-mario/" target="_blank" tabindex="1">About</a></li>
             </ul>
         </nav>`;
+    const skip = this.querySelector('#skip-to-content');
+    skip.addEventListener('click', () => {
+      let scroll = document.querySelector('#main-content');
+      if (window.location.hash === '' || window.location.hash === '/#' || window.location.hash === '/#/beranda' || window.location.hash === '/#restaurant') {
+        scroll = document.querySelector('#restaurant');
+      }
+      skip.blur();
+      scroll.scrollIntoView({ behavior: 'smooth' });
+    });
   }
 }
 

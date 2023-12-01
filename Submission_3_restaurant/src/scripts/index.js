@@ -1,37 +1,33 @@
 import 'regenerator-runtime';
-import '../styles/main.css';
-import '../styles/responsive.css';
-import './component/skip-to-content';
-import './component/app-bar';
-import './component/hero';
-import './component/restaurant-item';
-import './component/restaurant-list';
 import App from './views/app';
 import swRegister from './utils/sw-register';
-
-const hero = document.createElement('hero-element');
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+import '../styles/responsive.sass';
+import './components/app-bar';
+import './components/hero';
+import './components/restaurant-list';
+import './components/restaurant-item';
+import './components/loading-spinner';
+import './components/error-message';
+import './components/app-footer';
 
 const app = new App({
   button: document.querySelector('#hamburger'),
   drawer: document.querySelector('.nav__list, .close'),
   content: document.querySelector('#main-content'),
-  hero,
 });
 
-const skipLink = document.querySelector('skip-to-content');
-const mainContent = document.querySelector('#main-content');
-
-skipLink.addEventListener('click', (event) => {
-  event.preventDefault();
-  skipLink.querySelector('a').blur();
-  mainContent.scrollIntoView({ behavior: 'smooth' });
-});
-
-window.addEventListener('hashchange', () => {
+const refresh = () => {
+  const skip = document.querySelector('#skip-to-content');
+  if (window.location.hash === '') skip.href = '#';
+  else skip.href = window.location.hash;
   app.renderPage();
-});
+};
+
+window.addEventListener('hashchange', refresh);
 
 window.addEventListener('load', () => {
-  app.renderPage();
+  refresh();
   swRegister();
 });

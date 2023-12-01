@@ -4,12 +4,11 @@ import routes from '../routes/routes';
 
 class App {
   constructor({
-    button, drawer, content, hero,
+    button, drawer, content,
   }) {
     this._button = button;
     this._drawer = drawer;
     this._content = content;
-    this._hero = hero;
 
     this._initialAppShell();
   }
@@ -19,19 +18,12 @@ class App {
       button: this._button,
       drawer: this._drawer,
       content: this._content,
-      hero: this._hero,
     });
   }
 
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
-    if (url === '/' || url === '/beranda') page.hero = this._hero;
-    const hero = document.querySelector('#hero');
-    if (hero !== null) {
-      const header = document.querySelector('header');
-      header.removeChild(hero);
-    }
     this._content.replaceChildren(...(await page.render()));
     await page.afterRender();
   }

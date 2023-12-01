@@ -19,7 +19,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: [/\.s[ac]ss$/, /\.css$/],
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
@@ -58,17 +58,12 @@ module.exports = {
         {
           urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/'),
           handler: 'StaleWhileRevalidate',
-          options: { cacheName: 'mafood-restaurant-db' },
+          options: { cacheName: 'malba-restaurant-db' },
         },
         {
-          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images/medium/'),
+          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images/'),
           handler: 'StaleWhileRevalidate',
-          options: { cacheName: 'mafood-image-api' },
-        },
-        {
-          urlPattern: /^https:\/\/fonts\.gstatic\.com/,
-          handler: 'StaleWhileRevalidate',
-          options: { cacheName: 'google-fonts-webfonts' },
+          options: { cacheName: 'malba-restaurant-image-api' },
         },
       ],
     }),
